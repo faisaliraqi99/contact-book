@@ -4,10 +4,13 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
+import { fetchAllContacts } from './actions/index';
+import * as serviceWorker from './serviceWorker';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './index.css';
 import ContactsContainer from './container/contacts-container';
-import * as serviceWorker from './serviceWorker';
-import { fetchAllContacts } from './actions/index';
+import NavBarContainer from './container/navbar-container';
+import AddContactContainer from './container/addcontact-container';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
@@ -15,7 +18,13 @@ store.dispatch(fetchAllContacts());
 
 ReactDOM.render(
         <Provider store={store}>
-            <ContactsContainer></ContactsContainer>
+            <BrowserRouter>
+            <NavBarContainer></NavBarContainer>
+            <Switch>
+                <Route exact path='/' component={ContactsContainer} />
+                <Route path='/add' component={AddContactContainer} />
+            </Switch>
+            </BrowserRouter>
         </Provider>,
         document.getElementById('root')
     );

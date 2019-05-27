@@ -3,9 +3,9 @@ import axios from 'axios';
 
 const apiUrl = 'http://localhost:3000/contacts';
 
-export const createContact = ({ name, lastname, number, countrycode, email }) => {
+export const createContact = ({ name, lastname, number, countrycode, email, address }) => {
     return (dispatch) => {
-        return axios.post(`${apiUrl}`, { name, lastname, number, countrycode, email })
+        return axios.post(`${apiUrl}`, { name, lastname, number, countrycode, email, address })
             .then(response => {
                 dispatch(createContactSuccess(response.data))
             })

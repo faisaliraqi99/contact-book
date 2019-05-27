@@ -2,11 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as actionCreators from '../actions/index.js';
 import Contacts from '../component/Contacts';
+import AddContactContainer from './addcontact-container.js';
 
 class ContactsContainer extends React.Component {
-    componentDidMount() {
-
-    }
     render() {
         return(
             <Contacts contacts={this.props.contacts}></Contacts>

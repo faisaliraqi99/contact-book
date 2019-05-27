@@ -6,7 +6,8 @@
       "lastname": "Iraqi",
       "number": "0550646493",
       "countrycode": "+996",
-      "email": "faisal.iraqi99@gmail.com"
+      "email": "faisal.iraqi99@gmail.com",
+      "address": "Somestreet"
     },
     {
       "id": 1,
@@ -14,7 +15,8 @@
       "lastname": "Filippov",
       "number": "0550646493",
       "countrycode": "+996",
-      "email": "artem99@gmail.com"
+      "email": "artem99@gmail.com",
+      "address": "Somestreet"
     }
   ]
 }

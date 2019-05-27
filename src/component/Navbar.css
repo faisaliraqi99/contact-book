@@ -1,0 +1,17 @@
+.header {
+    background: #137ACB;
+}
+.navbar-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 25px 0;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.navbar-item {
+    cursor: pointer;
+}
