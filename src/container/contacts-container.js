@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as actionCreators from '../actions/index.js';
 import Contacts from '../component/Contacts';
-import AddContactContainer from './addcontact-container.js';
 
 class ContactsContainer extends React.Component {
     render() {
@@ -12,8 +11,8 @@ class ContactsContainer extends React.Component {
     }
 }
 
-const mapSateToProps=(state) => {
+const mapStateToProps=(state) => {
     return state
 };
 
-export default connect( mapSateToProps, actionCreators )(ContactsContainer);
+export default connect( mapStateToProps, actionCreators )(ContactsContainer);

@@ -3,9 +3,9 @@ import axios from 'axios';
 
 const apiUrl = 'http://localhost:3000/contacts';
 
-export const createContact = ({ name, lastname, number, countrycode, email, address }) => {
+export const createContact = (jsonData) => {
     return (dispatch) => {
-        return axios.post(`${apiUrl}`, { name, lastname, number, countrycode, email, address })
+        return axios.post(`${apiUrl}`, jsonData)
             .then(response => {
                 dispatch(createContactSuccess(response.data))
             })
@@ -24,7 +24,8 @@ export const createContactSuccess = (data) => {
             lastname: data.lastname,
             number: data.number,
             countrycode: data.countrycode,
-            email: data.email
+            email: data.email,
+            address: data.address
         }
     }
 };
@@ -61,7 +62,7 @@ export const fetchAllContacts = () => {
     return (dispatch) => {
         return axios.get(apiUrl)
             .then(response => {
-                dispatch(fetchContact(response.data))
+                dispatch(fetchContact(response.data));
             })
             .catch(error => {
                 throw (error);

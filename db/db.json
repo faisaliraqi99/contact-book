@@ -17,6 +17,24 @@
       "countrycode": "+996",
       "email": "artem99@gmail.com",
       "address": "Somestreet"
+    },
+    {
+      "id": 2,
+      "name": "Artem",
+      "lastname": "Filippov",
+      "number": "0550646493",
+      "countrycode": "+996",
+      "email": "artem99@gmail.com",
+      "address": "Somestreet"
+    },
+    {
+      "id": 3,
+      "name": "Iraqi",
+      "lastname": "Faisal",
+      "number": "05506464933",
+      "countrycode": "+996",
+      "email": "undefined@gmail.com",
+      "address": "Undefined"
     }
   ]
 }

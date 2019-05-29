@@ -1,5 +1,6 @@
 .header {
     background: #137ACB;
+    text-transform: uppercase;
 }
 .navbar-list {
     margin: 0;
@@ -12,6 +13,8 @@
     font-weight: bold;
     font-size: 1.5rem;
 }
-.navbar-item {
+.navbar-item > a {
+    color: #fff;
+    text-decoration: none;
     cursor: pointer;
 }

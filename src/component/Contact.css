@@ -8,17 +8,20 @@ body {
     padding: 0;
     list-style-type: none;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     max-width: 1170px;
     width: 100%;
     margin: 0 auto;
 }
 .contact-item {
-    max-width: 20%;
+    max-width: 25%;
     width: 100%;
     padding: 10px;
     margin: 10px 20px 0px 0px;
     color: #1e1e1e;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     border: 2px solid transparent;
 }
