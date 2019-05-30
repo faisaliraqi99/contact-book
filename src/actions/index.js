@@ -1,4 +1,4 @@
-import { ADD_CONTACT, DELETE_CONTACT, FETCH_CONTACT } from './types';
+import { ADD_CONTACT, SELECT_CONTACT, DELETE_CONTACT, FETCH_CONTACT } from './types';
 import axios from 'axios';
 
 const apiUrl = 'http://localhost:3000/contacts';
@@ -7,7 +7,7 @@ export const createContact = (jsonData) => {
     return (dispatch) => {
         return axios.post(`${apiUrl}`, jsonData)
             .then(response => {
-                dispatch(createContactSuccess(response.data))
+                dispatch(fetchAllContacts(),createContactSuccess(response.data));
             })
             .catch(error => {
                 throw (error);
@@ -29,6 +29,13 @@ export const createContactSuccess = (data) => {
         }
     }
 };
+
+export const addSelectedContact = (data) => {
+    return {
+        type: SELECT_CONTACT,
+        payload: data
+    }
+}
 
 export const deleteContactSuccess = id => {
     return {

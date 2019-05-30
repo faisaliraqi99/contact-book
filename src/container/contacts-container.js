@@ -1,12 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import * as actionCreators from '../actions/index.js';
+import { addSelectedContact } from '../actions/index';
 import Contacts from '../component/Contacts';
 
 class ContactsContainer extends React.Component {
+    selectItem = (event, props = this.props) => {
+        const contactId = event.target.closest('li').getAttribute('id');
+        const data = props.state.contacts[contactId];
+        props.store.dispatch(addSelectedContact(data));
+    }
+
     render() {
         return(
-            <Contacts contacts={this.props.contacts}></Contacts>
+            <Contacts
+                contacts={this.props.state.contacts}
+                selectItem={this.selectItem}
+            />
         )
     }
 }
