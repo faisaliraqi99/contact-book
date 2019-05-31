@@ -1,0 +1,28 @@
+.data-list {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+}
+.data-item {
+    padding: 1.5rem;
+    font-size: 1.5rem;
+    border: 2px solid rgb(187, 187, 187);
+    margin: 1rem;
+}
+.contact-btn {
+    display: block;
+    border: none;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    background-color: #137ACB;
+    color: #fff;
+    font-size: 1.2rem;
+    margin: 0 auto;
+}
+.delete {
+    background-color: rgb(203, 19, 19);
+}
+.edit {
+    background-color: rgb(203, 108, 19);
+    margin-bottom: 1rem;
+}

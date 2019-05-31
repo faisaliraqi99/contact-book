@@ -1,31 +1,22 @@
 {
   "contacts": [
     {
-      "id": 0,
-      "name": "Faisal",
-      "lastname": "Iraqi",
-      "number": "0550646493",
+      "id": 4,
+      "name": "Undefined",
+      "lastname": "Undefined",
+      "number": "0550112233",
       "countrycode": "+996",
-      "email": "faisal.iraqi99@gmail.com",
-      "address": "Somestreet"
-    },
-    {
-      "id": 1,
-      "name": "Artem",
-      "lastname": "Filippov",
-      "number": "0550646493",
-      "countrycode": "+996",
-      "email": "artem99@gmail.com",
-      "address": "Somestreet"
+      "email": "undefined@gmail.com",
+      "address": "Undefined"
     },
     {
       "id": 2,
-      "name": "Artem",
-      "lastname": "Filippov",
-      "number": "0550646493",
+      "name": "Undefined",
+      "lastname": "Undefined",
+      "number": "0550112233",
       "countrycode": "+996",
-      "email": "artem99@gmail.com",
-      "address": "Somestreet"
+      "email": "undefined@gmail.com",
+      "address": "Undefined"
     }
   ]
 }

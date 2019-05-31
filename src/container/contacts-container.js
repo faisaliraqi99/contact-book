@@ -8,7 +8,15 @@ import Contacts from '../component/Contacts';
 class ContactsContainer extends React.Component {
     selectItem = (event, props = this.props) => {
         const contactId = event.target.closest('li').getAttribute('id');
-        const data = props.state.contacts[contactId];
+        let objectId = -1;
+        props.state.contacts.find(function(item, i){
+                if(item.id === +contactId){
+                    objectId = i;
+                    return i;
+                }
+                    return '';
+        }); // Небольшой костыль)
+        const data = props.state.contacts[objectId];
         props.store.dispatch(addSelectedContact(data));
     }
 
