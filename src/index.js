@@ -13,6 +13,7 @@ import NavBar from './component/NavBar';
 import ContactsContainer from './container/contacts-container';
 import AddContactContainer from './container/add-contact-container';
 import DetailsContactContainer from './container/details-contact-container';
+import EditContactContainer from './container/edit-contact-container';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
@@ -26,6 +27,7 @@ ReactDOM.render(
 				<Route exact path='/' component={() => <ContactsContainer store={store} />} />
 				<Route path='/add' component={() => <AddContactContainer store={store} />} />
 				<Route path='/details' component={() => <DetailsContactContainer store={store} />} />
+				<Route path='/edit' component={() => <EditContactContainer store={store} />} />
 			</Switch>
 		</BrowserRouter>
 	</Provider>,

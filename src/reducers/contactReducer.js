@@ -1,20 +1,19 @@
-import { ADD_CONTACT, SELECT_CONTACT, DELETE_CONTACT, FETCH_CONTACT } from '../actions/types';
+import { SELECT_CONTACT, FETCH_CONTACT } from '../actions/types';
 
 const initialState = {
     contacts: [],
     selectedContact: {
-        name: 'Jack',
-        lastname: 'London'
-    },
-    isEditingContact: false
+        name: 'Select Contact',
+        lastname: 'Select Contact',
+        number: 'Select Contact',
+        email: 'Select Contact',
+        address: 'Select Contact'
+
+    }
 };
 
 export default function contactReducer(state = initialState, action) {
     switch (action.type) {
-        case ADD_CONTACT:
-            return [...state, action.payload];
-        case DELETE_CONTACT:
-            return state.filter(contact => contact.id !== action.payload.id);
         case FETCH_CONTACT:
             return {...state, contacts: action.contact};
         case SELECT_CONTACT:

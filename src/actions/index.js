@@ -30,6 +30,19 @@ export const createContactSuccess = (data) => {
     }
 };
 
+export const actionEditContact = (id, jsonData) => {
+    console.log(id,jsonData);
+    return(dispatch) => {
+        return axios.put(`${apiUrl}/${id}`, jsonData)
+            .then(response => {
+                dispatch(fetchAllContacts());
+            })
+            .catch(error => {
+                throw (error);
+            });
+    }
+}
+
 export const addSelectedContact = (data) => {
     return {
         type: SELECT_CONTACT,

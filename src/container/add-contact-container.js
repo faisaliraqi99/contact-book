@@ -8,8 +8,8 @@ import { createContact } from '../actions/index';
 class AddContactContainer extends Component {
     state = {
         "id": 0,
-        "name": "Undefined",
-        "lastname": "Undefined",
+        "name": "Default",
+        "lastname": "Default",
         "number": "0550112233",
         "countrycode": "+996",
         "email": "undefined@gmail.com",
@@ -34,11 +34,8 @@ class AddContactContainer extends Component {
     editState = (event) => {
         const inputId = event.target.id;
         const inputVal = event.target.value;
-        if(inputId === 'name') this.setState({name: inputVal});
-        if(inputId === 'lastname') this.setState({lastname: inputVal});
-        if(inputId === 'number') this.setState({number: inputVal});
-        if(inputId === 'email') this.setState({email: inputVal});
-        if(inputId === 'address') this.setState({address: inputVal});
+
+        this.setState({ [inputId]: inputVal });
     }
 
     render() {

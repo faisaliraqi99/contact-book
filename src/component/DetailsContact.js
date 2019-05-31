@@ -26,7 +26,7 @@ class DetailsContact extends Component {
                 </ul>
                 <button
                     className="contact-btn edit"
-                >
+                onClick={() => this.props.editContact()}>
                     Edit contact
                 </button>
                 <button 

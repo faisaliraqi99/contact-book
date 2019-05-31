@@ -7,6 +7,9 @@ import { deleteContact } from '../actions/index';
 import DetailsContact from '../component/DetailsContact'
 
 class DetailsContactContainer extends Component {
+    editContact = () => {
+        this.props.history.push('/edit');
+    }
     deleteContact = (id) => {
         if(window.confirm('Вы правда хотите удалить контакт?')) {
             this.props.store.dispatch(deleteContact(id));
@@ -18,6 +21,7 @@ class DetailsContactContainer extends Component {
             <DetailsContact
                 contactData={this.props.state.selectedContact}
                 selectContactToDelete={this.deleteContact}
+                editContact={this.editContact}
             />
         );
     }
