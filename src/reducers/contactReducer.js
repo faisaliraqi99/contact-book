@@ -1,6 +1,6 @@
 import { SELECT_CONTACT, FETCH_CONTACT } from '../actions/types';
 
-const initialState = {
+export const initialState = {
     contacts: [],
     selectedContact: {
         name: 'Select Contact',
@@ -8,16 +8,24 @@ const initialState = {
         number: 'Select Contact',
         email: 'Select Contact',
         address: 'Select Contact'
-
-    }
+    },
+    isLoading: null
 };
 
 export default function contactReducer(state = initialState, action) {
     switch (action.type) {
         case FETCH_CONTACT:
-            return {...state, contacts: action.contact};
+            return {
+                ...state,
+                contacts: action.contact, 
+                isLoading: true
+            }
         case SELECT_CONTACT:
-            return { ...state, selectedContact: action.payload};
+            return {
+                ...state,
+                selectedContact: action.payload,
+                isLoading: true
+            };
         default:
             return state;
     }

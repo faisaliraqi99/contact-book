@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import * as actionCreators from '../actions/index.js';
 import { addSelectedContact } from '../actions/index';
 import Contacts from '../component/Contacts';
 
-class ContactsContainer extends React.Component {
+class ContactsContainer extends Component {
     selectItem = (event, props = this.props) => {
         const contactId = event.target.closest('li').getAttribute('id');
         let objectId = -1;

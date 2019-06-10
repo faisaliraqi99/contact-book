@@ -6,8 +6,9 @@ const apiUrl = 'http://localhost:3000/contacts';
 export const createContact = (jsonData) => {
     return (dispatch) => {
         return axios.post(`${apiUrl}`, jsonData)
-            .then(response => {
-                dispatch(fetchAllContacts(),createContactSuccess(response.data));
+        .then(response => {
+                dispatch(createContactSuccess(response.data));
+                dispatch(fetchAllContacts());
             })
             .catch(error => {
                 throw (error);
@@ -31,10 +32,9 @@ export const createContactSuccess = (data) => {
 };
 
 export const actionEditContact = (id, jsonData) => {
-    console.log(id,jsonData);
     return(dispatch) => {
         return axios.put(`${apiUrl}/${id}`, jsonData)
-            .then(response => {
+            .then(() => {
                 dispatch(fetchAllContacts());
             })
             .catch(error => {
