@@ -3,7 +3,7 @@ import thunk from 'redux-thunk'
 import moxios from 'moxios'
 import expect from 'expect'
 
-import { fetchAllContacts, createContactSuccess, actionEditContact, createContact, addSelectedContact, fetchContact } from '../actions/index'
+import { fetchAllContacts, createContactSuccess, createContact, addSelectedContact, fetchContact } from '../actions/index'
 import { ADD_CONTACT, FETCH_CONTACT, SELECT_CONTACT } from '../actions/types'
 
 const middlewares = [thunk]
