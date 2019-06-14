@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Contacts test Contacts is render from state snapshot 1`] = `
+<ul
+  className="contact-list"
+>
+  <li
+    className="contact-item"
+    id={1}
+    key="1"
+  >
+    <Link
+      className="contact-item-link"
+      to="/details"
+    >
+      <img
+        alt="phone"
+        className="contact-item__img"
+        src=""
+      />
+      <div
+        className="contact-item__info"
+      >
+        <h3
+          className="contact-item__title"
+        >
+          Somename
+           
+          Lastname
+        </h3>
+        <p
+          className="contact-item__desc"
+        >
+          Number: 
+          550121212
+        </p>
+      </div>
+    </Link>
+  </li>
+  <li
+    className="contact-item"
+    id={2}
+    key="2"
+  >
+    <Link
+      className="contact-item-link"
+      to="/details"
+    >
+      <img
+        alt="phone"
+        className="contact-item__img"
+        src=""
+      />
+      <div
+        className="contact-item__info"
+      >
+        <h3
+          className="contact-item__title"
+        >
+          Somename
+           
+          Lastname
+        </h3>
+        <p
+          className="contact-item__desc"
+        >
+          Number: 
+          550121212
+        </p>
+      </div>
+    </Link>
+  </li>
+</ul>
+`;

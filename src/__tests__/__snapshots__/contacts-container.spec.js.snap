@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Contacts-container render ContactsContainer snapshot test 1`] = `
+<ContextProvider
+  value={null}
+>
+  <ContactsContainer
+    actionEditContact={[Function]}
+    addSelectedContact={[Function]}
+    createContact={[Function]}
+    createContactSuccess={[Function]}
+    deleteContact={[Function]}
+    fetchAllContacts={[Function]}
+    fetchContact={[Function]}
+    state={
+      Object {
+        "contacts": Array [],
+        "isLoading": null,
+        "selectedContact": Object {
+          "address": "Select Contact",
+          "email": "Select Contact",
+          "lastname": "Select Contact",
+          "name": "Select Contact",
+          "number": "Select Contact",
+        },
+      }
+    }
+    store={
+      Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      }
+    }
+  />
+</ContextProvider>
+`;

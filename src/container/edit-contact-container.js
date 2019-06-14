@@ -7,42 +7,42 @@ import EditContact from '../component/EditContact'
 import { actionEditContact } from '../actions/index';
 
 class EditContactContainer extends Component {
-    state = {
-        "id": `${this.props.state.selectedContact.id}`,
-        "name": `${this.props.state.selectedContact.name}`,
-        "lastname": `${this.props.state.selectedContact.lastname}`,
-        "number": `${this.props.state.selectedContact.number}`,
-        "countrycode": `${this.props.state.selectedContact.countrycode}`,
-        "email": `${this.props.state.selectedContact.email}`,
-        "address": `${this.props.state.selectedContact.address}`
-    }
+  state = {
+    "id": `${this.props.state.selectedContact.id}`,
+    "name": `${this.props.state.selectedContact.name}`,
+    "lastname": `${this.props.state.selectedContact.lastname}`,
+    "number": `${this.props.state.selectedContact.number}`,
+    "countrycode": `${this.props.state.selectedContact.countrycode}`,
+    "email": `${this.props.state.selectedContact.email}`,
+    "address": `${this.props.state.selectedContact.address}`
+  }
 
-    editState = (event) => {
-        const inputId = event.target.id;
-        const inputVal = event.target.value;
+  editState = (event) => {
+    const inputId = event.target.id;
+    const inputVal = event.target.value;
 
-        this.setState({ [inputId]: inputVal});
-    }
-    saveContact = () => {
-        this.props.store.dispatch(actionEditContact(this.state.id, this.state))
-            .then(this.props.history.push('/'))
-            .catch(err => {
-                console.log(err);
-            });
-    }
-    render() {
-        return (
-            <EditContact
-                contactData={this.props.state.selectedContact}
-                editState={this.editState}
-                saveContact={this.saveContact}
-            />
-        );
-    }
+    this.setState({ [inputId]: inputVal });
+  }
+  saveContact = () => {
+    this.props.store.dispatch(actionEditContact(this.state.id, this.state))
+      .then(this.props.history.push('/'))
+      .catch(err => {
+        console.log(err);
+      });
+  }
+  render() {
+    return (
+      <EditContact
+        contactData={this.props.state.selectedContact}
+        editState={this.editState}
+        saveContact={this.saveContact}
+      />
+    );
+  }
 }
 
 const mapStateToProps = (state) => {
-    return state
+  return state
 };
 
 export default withRouter(connect(mapStateToProps, actionCreators)(EditContactContainer));
