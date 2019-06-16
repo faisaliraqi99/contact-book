@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 import { deleteContact } from '../actions/index';
 import DetailsContact from '../component/DetailsContact'
 
-class DetailsContactContainer extends Component {
+export class DetailsContactContainer extends Component {
   editContact = () => {
     this.props.history.push('/edit');
   }

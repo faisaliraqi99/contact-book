@@ -4,26 +4,37 @@ import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import rootReducer from '../reducers'
 
-import AddContactContainer, { AddContactContainer as OriginalAddContactContainer } from '../container/add-contact-container'
+import EditContactContainer, { EditContactContainer as OriginalEditContactContainer } from '../container/edit-contact-container'
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
-describe('AddContactContainer test group', () => {
+const state = {
+  selectedContact: {
+    id: 1,
+    name: 'Select Contact',
+    lastname: 'Select Contact',
+    number: 'Select Contact',
+    email: 'Select Contact',
+    address: 'Select Contact'
+  }
+}
 
-  const originalWrapper = mount(<OriginalAddContactContainer store={store} />)
+describe('EditContactContainer test group', () => {
 
-  it('AddContact render everythink correct', () => {
-    expect(originalWrapper.find('.add-contact')).toHaveLength(1);
+  const originalWrapper = mount(<OriginalEditContactContainer state={state} store={store} />)
+
+  it('EditContact render everythink correct', () => {
+    expect(originalWrapper.find('.data-list')).toHaveLength(1);
   });
 
-  it('AddContact btn is call function dispatch', () => {
+  it('EditContact save-btn is call function dispatch', () => {
     expect(originalWrapper.state('_isCalled')).toEqual(false);
     originalWrapper.find('button').simulate('click');
     expect(originalWrapper.state('_isCalled')).toEqual(true);
-    originalWrapper.setState({ _isCalled: false});
+    originalWrapper.setState({ _isCalled: false });
   });
 
-  it('Input and editContact(handler) for name work correct', () => {
+  it('Input and editState(handler) for name work correct', () => {
     const inputDataType = originalWrapper.find('#name');
     const inputDataTypeConfig = { target: { value: 'NameCorrect', id: 'name' } };
 
@@ -32,7 +43,7 @@ describe('AddContactContainer test group', () => {
     expect(originalWrapper.state('data').name).toEqual(inputDataTypeConfig.target.value);
   });
 
-  it('Input and editContact(handler) for lastname work correct', () => {
+  it('Input and editState(handler) for lastname work correct', () => {
     const inputDataType = originalWrapper.find('#lastname');
     const inputDataTypeConfig = { target: { value: 'LastnameCorrect', id: 'lastname' } };
 
@@ -41,23 +52,16 @@ describe('AddContactContainer test group', () => {
     expect(originalWrapper.state('data').lastname).toEqual(inputDataTypeConfig.target.value);
   });
 
-  it('Input and editContact(handler) for number work correct', () => {
+  it('Input and editState(handler) for number work correct', () => {
     const inputDataType = originalWrapper.find('#number');
     const inputDataTypeConfig = { target: { value: 'NumberCorrect', id: 'number' } };
+
     inputDataType.simulate('input', inputDataTypeConfig);
+
     expect(originalWrapper.state('data').number).toEqual(inputDataTypeConfig.target.value);
   });
 
-  it('Input and editContact(handler) for email work correct', () => {
-    const inputDataType = originalWrapper.find('#email');
-    const inputDataTypeConfig = { target: { value: 'EmailCorrect', id: 'email' } };
-
-    inputDataType.simulate('input', inputDataTypeConfig);
-
-    expect(originalWrapper.state('data').email).toEqual(inputDataTypeConfig.target.value);
-  });
-
-  it('Input and editContact(handler) for address work correct', () => {
+  it('Input and editState(handler) for address work correct', () => {
     const inputDataType = originalWrapper.find('#address');
     const inputDataTypeConfig = { target: { value: 'AddressCorrect', id: 'address' } };
 

@@ -19,15 +19,6 @@
       "address": "Kulieva"
     },
     {
-      "id": 3,
-      "name": "Undefined",
-      "lastname": "Undefined",
-      "number": "0550112233",
-      "countrycode": "+996",
-      "email": "undefined@gmail.com",
-      "address": "Undefined"
-    },
-    {
       "id": 4,
       "name": "Undefi",
       "lastname": "asfasf",
@@ -35,15 +26,6 @@
       "countrycode": "+996",
       "email": "undefined@gmail.com",
       "address": "asf;,as"
-    },
-    {
-      "id": 7,
-      "name": "Defau",
-      "lastname": "Default",
-      "number": "0550112233",
-      "countrycode": "+996",
-      "email": "undefined@gmail.com",
-      "address": "Undefined"
     },
     {
       "id": 8,
@@ -55,17 +37,8 @@
       "address": "Undefined"
     },
     {
-      "id": 9,
-      "name": "New",
-      "lastname": "Contact",
-      "number": "999",
-      "countrycode": "+996",
-      "email": "555",
-      "address": "222"
-    },
-    {
       "id": 10,
-      "name": "aaa",
+      "name": "aaaf",
       "lastname": "www",
       "number": "fff",
       "countrycode": "+996",
