@@ -25,12 +25,12 @@ const DetailsContact = (props) => {
       </ul>
       <button
         className="contact-btn edit"
-        onClick={() => props.editContact()}>
+        onClick={props.editContact}>
         Edit contact
                 </button>
       <button
         className="contact-btn delete"
-        onClick={() => props.selectContactToDelete(props.contactData.id)}>
+        onClick={() => props.deleteContact(props.contactData.id)}>
         Delete contact
                 </button>
     </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import rootReducer from '../reducers'
@@ -14,6 +14,11 @@ describe('AddContactContainer test group', () => {
 
   it('AddContact render everythink correct', () => {
     expect(originalWrapper.find('.add-contact')).toHaveLength(1);
+  });
+
+  it('AddContactContainer snapshot test', () => {
+    const ContactsContainerShallow = mount(<AddContactContainer store={store} />);
+    expect(ContactsContainerShallow).toMatchSnapshot();
   });
 
   it('AddContact btn is call function dispatch', () => {

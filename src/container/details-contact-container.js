@@ -20,7 +20,7 @@ export class DetailsContactContainer extends Component {
     return (
       <DetailsContact
         contactData={this.props.state.selectedContact}
-        selectContactToDelete={this.deleteContact}
+        deleteContact={this.deleteContact}
         editContact={this.editContact}
       />
     );

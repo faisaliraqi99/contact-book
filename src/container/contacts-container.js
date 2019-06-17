@@ -8,15 +8,9 @@ import Contacts from '../component/Contacts';
 export class ContactsContainer extends Component {
   selectItem = (event) => {
     const contactId = event.target.closest('li').getAttribute('id');
-    let objectId = -1;
-    this.props.state.contacts.find(function (item, i) {
-      if (item.id === +contactId) {
-        objectId = i;
-        return i;
-      }
-      return '';
-    }); // Небольшой костыль)
-    const data = this.props.state.contacts[objectId];
+    const index = this.props.state.contacts.map((o) => o.id).indexOf(+contactId);
+
+    const data = this.props.state.contacts[index];
     this.props.store.dispatch(addSelectedContact(data));
   }
 

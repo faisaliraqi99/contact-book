@@ -23,7 +23,7 @@ export class AddContactContainer extends Component {
     // Автоматически подставляет id: со значением длины массива contacts
     setTimeout(() => {
       this.setState({
-        data: { ...this.state.data, id: this.props.state.contacts.length}
+        data: { ...this.state.data, id: this.props.state.contacts.length }
       })
     });
   }

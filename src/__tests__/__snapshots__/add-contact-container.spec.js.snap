@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddContactContainer test group AddContactContainer snapshot test 1`] = `
+<Connect(AddContactContainer)
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+  <AddContactContainer
+    actionEditContact={[Function]}
+    addSelectedContact={[Function]}
+    createContact={[Function]}
+    createContactSuccess={[Function]}
+    deleteContact={[Function]}
+    fetchAllContacts={[Function]}
+    fetchContact={[Function]}
+    state={
+      Object {
+        "contacts": Array [],
+        "isLoading": null,
+        "selectedContact": Object {
+          "address": "Select Contact",
+          "email": "Select Contact",
+          "lastname": "Select Contact",
+          "name": "Select Contact",
+          "number": "Select Contact",
+        },
+      }
+    }
+    store={
+      Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      }
+    }
+  >
+    <AddContact
+      contactData={
+        Object {
+          "_isCalled": false,
+          "data": Object {
+            "address": "Undefined",
+            "countrycode": "+996",
+            "email": "undefined@gmail.com",
+            "id": 0,
+            "lastname": "Default",
+            "name": "Default",
+            "number": "0550112233",
+          },
+        }
+      }
+      createContact={[Function]}
+      editState={[Function]}
+    >
+      <div
+        className="container"
+      >
+        <div
+          className="add-contact"
+        >
+          <input
+            className="contact-input"
+            id="name"
+            onInput={[Function]}
+            placeholder="Name"
+            type="text"
+          />
+          <input
+            className="contact-input"
+            id="lastname"
+            onInput={[Function]}
+            placeholder="Lastname"
+            type="text"
+          />
+          <input
+            className="contact-input"
+            id="number"
+            onInput={[Function]}
+            placeholder="Number"
+            type="text"
+          />
+          <input
+            className="contact-input"
+            id="email"
+            onInput={[Function]}
+            placeholder="Email"
+            type="text"
+          />
+          <input
+            className="contact-input"
+            id="address"
+            onInput={[Function]}
+            placeholder="Address"
+            type="text"
+          />
+          <button
+            className="add-contact-btn"
+            onClick={[Function]}
+          >
+            Create Contact
+          </button>
+        </div>
+      </div>
+    </AddContact>
+  </AddContactContainer>
+</Connect(AddContactContainer)>
+`;
