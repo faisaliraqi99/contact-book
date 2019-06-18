@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actionCreators from '../actions/index.js';
 import { withRouter } from 'react-router-dom';
 
+import * as actionCreators from '../actions/index.js';
 import EditContact from '../component/EditContact'
 import { actionEditContact } from '../actions/index';
 

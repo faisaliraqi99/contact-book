@@ -53,24 +53,6 @@
       "countrycode": "+996",
       "email": "undefined@gmail.com",
       "address": "Undefined"
-    },
-    {
-      "id": 12,
-      "name": "Defau",
-      "lastname": "Default",
-      "number": "0550112233",
-      "countrycode": "+996",
-      "email": "undefined@gmail.com",
-      "address": "Undefined"
-    },
-    {
-      "id": 13,
-      "name": "Default",
-      "lastname": "Default",
-      "number": "0550112233",
-      "countrycode": "+996",
-      "email": "undefined@gmail.com",
-      "address": "Undefined"
     }
   ]
 }

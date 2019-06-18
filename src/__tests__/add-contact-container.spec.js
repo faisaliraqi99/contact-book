@@ -22,6 +22,7 @@ describe('AddContactContainer test group', () => {
   });
 
   it('AddContact btn is call function dispatch', () => {
+    const dispatch = jest.fn();
     expect(originalWrapper.state('_isCalled')).toEqual(false);
     originalWrapper.find('button').simulate('click');
     expect(originalWrapper.state('_isCalled')).toEqual(true);

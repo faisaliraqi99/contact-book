@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actionCreators from '../actions/index.js';
 
+import * as actionCreators from '../actions/index.js';
 import AddContact from '../component/AddContact'
 import { createContact } from '../actions/index';
 
