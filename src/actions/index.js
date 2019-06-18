@@ -8,7 +8,7 @@ export const createContact = (jsonData) => {
         return axios.post(`${apiUrl}`, jsonData)
         .then(response => {
                 dispatch(createContactSuccess(response.data));
-                // dispatch(fetchAllContacts());
+                dispatch(fetchAllContacts());
             })
             .catch(error => {
                 throw (error);
