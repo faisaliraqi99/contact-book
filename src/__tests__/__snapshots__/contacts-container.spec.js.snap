@@ -5,13 +5,7 @@ exports[`Contacts-container render ContactsContainer snapshot test 1`] = `
   value={null}
 >
   <ContactsContainer
-    actionEditContact={[Function]}
-    addSelectedContact={[Function]}
-    createContact={[Function]}
-    createContactSuccess={[Function]}
-    deleteContact={[Function]}
-    fetchAllContacts={[Function]}
-    fetchContact={[Function]}
+    addSelectedContacts={[Function]}
     state={
       Object {
         "contacts": Array [],

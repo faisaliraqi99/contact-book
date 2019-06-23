@@ -1,58 +1,31 @@
 {
   "contacts": [
     {
-      "id": 1,
-      "name": "Faisal",
-      "lastname": "Iraqi",
-      "number": "0550646493",
+      "id": 12,
+      "name": "Hello",
+      "lastname": "It",
+      "number": "Latest",
       "countrycode": "+996",
-      "email": "undefined@gmail.com",
-      "address": "Akhunbaev"
+      "email": "Test",
+      "address": "For"
     },
     {
-      "id": 2,
-      "name": "Logoped",
-      "lastname": "Ahahakovi4",
-      "number": "996550646493",
+      "id": 13,
+      "name": "Test",
+      "lastname": "For",
+      "number": "You",
       "countrycode": "+996",
-      "email": "undefined@gmail.com",
-      "address": "Kulieva"
+      "email": "You",
+      "address": ""
     },
     {
-      "id": 4,
-      "name": "Undefi",
-      "lastname": "asfasf",
-      "number": "asfasg",
+      "id": 14,
+      "name": "Everythink",
+      "lastname": "Is",
+      "number": "Ok",
       "countrycode": "+996",
-      "email": "undefined@gmail.com",
-      "address": "asf;,as"
-    },
-    {
-      "id": 8,
-      "name": "Labuten",
-      "lastname": "Ivanovich",
-      "number": "0550112233",
-      "countrycode": "+996",
-      "email": "undefined@gmail.com",
-      "address": "Undefined"
-    },
-    {
-      "id": 10,
-      "name": "aaaf",
-      "lastname": "www",
-      "number": "fff",
-      "countrycode": "+996",
-      "email": "fff",
-      "address": "fff"
-    },
-    {
-      "id": 11,
-      "name": "Somename",
-      "lastname": "Default",
-      "number": "0550112233",
-      "countrycode": "+996",
-      "email": "undefined@gmail.com",
-      "address": "Undefined"
+      "email": "lets.go@gmail.com",
+      "address": "Bishkek shaary"
     }
   ]
 }

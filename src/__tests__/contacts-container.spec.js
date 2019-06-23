@@ -4,7 +4,10 @@ import { createStore } from 'redux'
 import rootReducer from '../reducers'
 import { BrowserRouter as Router } from 'react-router-dom'
 
+import { mapStateToProps, mapDispatchToProps } from '../container/contacts-container'
+import { addSelectedContact } from '../actions/index';
 import ContactsContainer, { ContactsContainer as OriginalContactsContainer } from '../container/contacts-container'
+import { initialState } from '../reducers/contactReducer';
 
 const initialData = {
   contacts: [
@@ -47,19 +50,30 @@ describe('Contacts-container render',() => {
 
 
 describe('Contacts-container selectItem test', () => {
+  const props = {
+    store,
+    addSelectedContacts: jest.fn()
+  }
 
   const wrapper = mount(
     <Router>
-      <OriginalContactsContainer store={store} state={initialData} />
+      <OriginalContactsContainer {...props} state={initialData} />
     </Router>);
 
-  beforeEach(() => {
+  it('Contacts-container selectItem work correct', () => {
     wrapper.find('li').first().simulate('click');
+    expect(props.addSelectedContacts.mock.calls[0][0]).toEqual(initialData.contacts[0])
   });
 
-  it('Contacts-container selectItem work correct', () => {
-    const ReduxState = wrapper.find('ContactsContainer').props().store.getState();
-    expect(ReduxState.state.selectedContact).toEqual(initialData.contacts[0]);
+  it('Contacts-container mapStateToProps work correct', () => {
+    expect(mapStateToProps(initialData).contacts).toHaveLength(2);
+  });
+  
+  it('Contacts-container mapDispatchToProps work correct', () => {
+    const dispatch = jest.fn();
+
+    mapDispatchToProps(dispatch).addSelectedContacts();
+    expect(dispatch.mock.calls[0][0]).toEqual({type: 'SELECT_CONTACT'});
   });
 
 });

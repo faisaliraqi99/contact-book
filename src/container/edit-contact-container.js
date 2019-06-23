@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import * as actionCreators from '../actions/index.js';
 import EditContact from '../component/EditContact'
 import { actionEditContact } from '../actions/index';
 
@@ -16,8 +15,7 @@ export class EditContactContainer extends Component {
       "countrycode": `${this.props.state.selectedContact.countrycode}`,
       "email": `${this.props.state.selectedContact.email}`,
       "address": `${this.props.state.selectedContact.address}`
-    },
-    _isCalled: false
+    }
   }
 
   editState = (event) => {
@@ -29,11 +27,9 @@ export class EditContactContainer extends Component {
      });
   }
   saveContact = () => {
-    this.props.store.dispatch(actionEditContact(this.state.data.id, this.state.data), this.setState({ _isCalled: true }))
-      .then(() => { this.props.history.push('/') })
-      .catch(err => {
-        console.log(err);
-      });
+    this.props.editContacts(this.state.data.id, this.state.data)
+      .then(() => this.props.history.push('/'))
+      .catch(error => console.log(error));
   }
   render() {
     return (
@@ -46,8 +42,14 @@ export class EditContactContainer extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+export const mapStateToProps = (state) => {
   return state;
 };
 
-export default withRouter(connect(mapStateToProps, actionCreators)(EditContactContainer));
+export const mapDispatchToProps = dispatch => {
+  return {
+    editContacts: (id, data) => dispatch(actionEditContact(id,data))
+  }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EditContactContainer));

@@ -1,10 +1,11 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import { createStore, applyMiddleware } from 'redux'
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import thunk from 'redux-thunk'
 import rootReducer from '../reducers'
 
+import { mapStateToProps, mapDispatchToProps } from '../container/details-contact-container'
 import DetailsContactContainer, { DetailsContactContainer as OriginalDetailsContactContainer } from '../container/Details-contact-container'
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
@@ -21,8 +22,25 @@ const state = {
 }
 
 describe('DetailsContactContainer test group', () => {
+  const props = {
+    state,
+    store,
+    history: [],
+    deleteContacts: jest.fn(() => Promise.resolve())
+  }
 
-  const originalWrapper = mount(<OriginalDetailsContactContainer history={[]} state={state} store={store} />);
+  const originalWrapper = mount(<OriginalDetailsContactContainer {...props} />);
+
+  it('Details-contact-container mapStateToProps work is correct', () => {
+      expect(mapStateToProps(state).selectedContact.id).toEqual(1);
+  });
+
+  it('Details-contact-container mapDispatchToProps is call dispatch', () => {
+    const dispatch = jest.fn();
+
+    mapDispatchToProps(dispatch).deleteContacts();
+    expect(dispatch.mock.calls.length).toEqual(1);
+  });
 
   it('editContact() make a redirect', () => {
     expect(originalWrapper.prop('history')).toEqual([]);
@@ -30,11 +48,25 @@ describe('DetailsContactContainer test group', () => {
     expect(originalWrapper.prop('history')).toEqual(['/edit']);
   });
 
+  
   it('deleteContact() make a delete', () => {
     window.confirm = jest.fn(() => true);
     expect(originalWrapper.prop('history')).toEqual(['/edit'])
     originalWrapper.find('.delete').simulate('click')
     expect(originalWrapper.prop('history')).toEqual(['/edit', '/'])
+  });
+
+  it('deleteContact() error catch placeholder', () => {
+    const errorProps = {
+      state,
+      store,
+      history: [],
+      deleteContacts: jest.fn(() => Promise.reject('Somerr'))
+    }
+    window.confirm = jest.fn(() => true);
+    window.alert = () => {};
+    const errorWrapper = mount(<OriginalDetailsContactContainer {...errorProps} />);
+    errorWrapper.find('.delete').simulate('click');
   });
 
   it('Name in DetailsContact render right',() => {

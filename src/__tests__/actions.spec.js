@@ -38,23 +38,6 @@ describe('ASYNC ACTIONS', () => {
     });
   });
 
-  it('createContact SUCCESS', () => {
-    moxios.wait(() => {
-      const request = moxios.requests.mostRecent();
-      request.respondWith({
-        status: 200,
-        response: mockData
-      });
-    });
-
-    const expectedActons = [createContactSuccess(mockData)];
-    const store = mockStore({});
-
-    return store.dispatch(createContact()).then(() => {
-      expect(store.getActions()).toEqual(expectedActons);
-    });
-  });
-
 });
 
 describe('SYNC ACTIONS', () => {
@@ -68,21 +51,6 @@ describe('SYNC ACTIONS', () => {
     "email": "undefined@gmail.com",
     "address": "Undefined"
   }
-
-  it('createContactSuccess', () => {
-    expect(createContactSuccess(data)).toEqual({
-      type: ADD_CONTACT,
-      payload: {
-        id: data.id,
-        name: data.name,
-        lastname: data.lastname,
-        number: data.number,
-        countrycode: data.countrycode,
-        email: data.email,
-        address: data.address
-      }
-    });
-  });
 
   it('addSelectedContact', () => {
     expect(addSelectedContact(data)).toEqual({

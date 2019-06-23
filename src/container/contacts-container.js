@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import * as actionCreators from '../actions/index.js';
 import { addSelectedContact } from '../actions/index';
 import Contacts from '../component/Contacts';
 
 export class ContactsContainer extends Component {
   selectItem = (event) => {
+    const contactsList = this.props.state.contacts;
     const contactId = event.target.closest('li').getAttribute('id');
-    const index = this.props.state.contacts.map((o) => o.id).indexOf(+contactId);
+    const index = contactsList.map((o) => o.id).indexOf(+contactId);
 
-    const data = this.props.state.contacts[index];
-    this.props.store.dispatch(addSelectedContact(data));
+    const data = contactsList[index];
+    this.props.addSelectedContacts(data);
   }
 
   render() {
@@ -24,8 +24,14 @@ export class ContactsContainer extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+export const mapStateToProps = (state) => {
   return state
 };
 
-export default connect(mapStateToProps, actionCreators)(ContactsContainer);
+export const mapDispatchToProps = dispatch => {
+  return {
+    addSelectedContacts: (data) => dispatch(addSelectedContact(data))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactsContainer);

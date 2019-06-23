@@ -1,3 +1,2 @@
-export const ADD_CONTACT = 'ADD_CONTACT';
 export const FETCH_CONTACT = 'FETCH_CONTACT';
 export const SELECT_CONTACT = 'SELECT_CONTACT';

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import * as actionCreators from '../actions/index.js';
 import AddContact from '../component/AddContact'
 import { createContact } from '../actions/index';
 
@@ -15,22 +14,21 @@ export class AddContactContainer extends Component {
       "countrycode": "+996",
       "email": "undefined@gmail.com",
       "address": "Undefined"
-    },
-    _isCalled: false
+    }
   }
 
-  componentWillReceiveProps() {
-    // Автоматически подставляет id: со значением длины массива contacts
-    setTimeout(() => {
-      this.setState({
-        data: { ...this.state.data, id: this.props.state.contacts.length }
-      })
-    });
+  componentDidUpdate = (prevProps) => {
+    const contactsArrProps = this.props.state.contacts;
+
+    if (contactsArrProps.length !== prevProps.state.contacts.length) {
+      const index = contactsArrProps.length - 1;
+      this.setState({ data: { ...this.state.data, id: contactsArrProps[index].id + 1} });
+    }
   }
 
   createContact = () => {
-    this.props.store.dispatch(createContact(this.state.data), this.setState({ _isCalled: true }))
-      .then(() => { alert('Контакт добавлен') })
+    this.props.createContacts(this.state.data)
+      .then(() => alert(`Контакт ${this.state.data.name} добавлен`))
       .catch(error => console.log(error));
   }
 
@@ -38,7 +36,7 @@ export class AddContactContainer extends Component {
     const inputId = event.target.id;
     const inputVal = event.target.value;
 
-    this.setState({ data: { ...this.state.data, [inputId]: inputVal }});
+    this.setState({ data: { ...this.state.data, [inputId]: inputVal } });
   }
 
   render() {
@@ -46,7 +44,6 @@ export class AddContactContainer extends Component {
       <AddContact
         createContact={this.createContact}
         editState={this.editState}
-        contactData={this.state}
       />
     );
   }
@@ -56,4 +53,10 @@ const mapStateToProps = (state) => {
   return state
 };
 
-export default connect(mapStateToProps, actionCreators)(AddContactContainer);
+export const mapDispatchToProps = dispatch => {
+  return {
+    createContacts: (data) => dispatch(createContact(data))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddContactContainer);

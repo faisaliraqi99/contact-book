@@ -13,13 +13,7 @@ exports[`AddContactContainer test group AddContactContainer snapshot test 1`] = 
   }
 >
   <AddContactContainer
-    actionEditContact={[Function]}
-    addSelectedContact={[Function]}
-    createContact={[Function]}
-    createContactSuccess={[Function]}
-    deleteContact={[Function]}
-    fetchAllContacts={[Function]}
-    fetchContact={[Function]}
+    createContacts={[Function]}
     state={
       Object {
         "contacts": Array [],
@@ -44,20 +38,6 @@ exports[`AddContactContainer test group AddContactContainer snapshot test 1`] = 
     }
   >
     <AddContact
-      contactData={
-        Object {
-          "_isCalled": false,
-          "data": Object {
-            "address": "Undefined",
-            "countrycode": "+996",
-            "email": "undefined@gmail.com",
-            "id": 0,
-            "lastname": "Default",
-            "name": "Default",
-            "number": "0550112233",
-          },
-        }
-      }
       createContact={[Function]}
       editState={[Function]}
     >

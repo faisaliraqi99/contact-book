@@ -4,7 +4,9 @@ import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import rootReducer from '../reducers'
 
+import { mapStateToProps, mapDispatchToProps } from '../container/edit-contact-container'
 import EditContactContainer, { EditContactContainer as OriginalEditContactContainer } from '../container/edit-contact-container'
+import { original } from 'immer';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
@@ -20,18 +22,45 @@ const state = {
 }
 
 describe('EditContactContainer test group', () => {
+  const props = {
+    state,
+    store,
+    history: [],
+    editContacts: jest.fn(() => Promise.resolve())
+  }
 
-  const originalWrapper = mount(<OriginalEditContactContainer state={state} store={store} />)
+  const originalWrapper = mount(<OriginalEditContactContainer {...props} />)
 
   it('EditContact render everythink correct', () => {
     expect(originalWrapper.find('.data-list')).toHaveLength(1);
   });
 
+  it('Edit-contact-container mapStateToProps work correct', () => {
+    expect(mapStateToProps(state).selectedContact.id).toEqual(1);
+  });
+
+  it('Edit-contact-container mapDispatchToProps work correct', () => {
+    const dispatch = jest.fn();
+
+    mapDispatchToProps(dispatch).editContacts();
+    expect(dispatch.mock.calls.length).toEqual(1);
+  });
+
+  it('Edit-contact-container saveContact catch work correct', () => {
+    const errorProps = {
+      state,
+      store,
+      history: [],
+      editContacts: jest.fn(() => Promise.reject())
+    }
+    console.log = () => { };
+    const errorWrapper = mount(<OriginalEditContactContainer {...errorProps} />)
+    errorWrapper.find('.contact-btn').simulate('click');
+  });
+
   it('EditContact save-btn is call function dispatch', () => {
-    expect(originalWrapper.state('_isCalled')).toEqual(false);
-    originalWrapper.find('button').simulate('click');
-    expect(originalWrapper.state('_isCalled')).toEqual(true);
-    originalWrapper.setState({ _isCalled: false });
+    originalWrapper.find('.contact-btn').simulate('click');
+    expect(props.editContacts.mock.calls[0][0]).toEqual("1");
   });
 
   it('Input and editState(handler) for name work correct', () => {
